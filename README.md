@@ -7,7 +7,7 @@
 5. **EXPOSE**: Indicates which port the container will use for communication.
 6. **CMD / ENTRYPOINT**: Specifies the default command to run when the container starts. `CMD` is generally for setting default arguments, and `ENTRYPOINT` defines the executable itself.
 
-### 1: Node.js Dockerfile (Node.js + npm for a JavaScript/React app)
+### Node.js Dockerfile (Node.js + npm for a JavaScript/React app)
 
 ```Dockerfile
 FROM node:14-alpine
