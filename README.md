@@ -1,7 +1,5 @@
 # Docker
 
-### Key Concepts to Remember:
-
 1. **FROM**: Specifies the base image to use for the container.
 2. **WORKDIR**: Sets the working directory inside the container, so subsequent commands will run relative to that directory.
 3. **COPY**: Copies files from your local machine into the container.
