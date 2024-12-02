@@ -44,17 +44,17 @@ Flyway is a database migration tool that can be used to apply migrations automat
 - **Dependencies**: The Flyway service depends on the `mysql` service to ensure MySQL is available before attempting migrations.
 - **Network**: Flyway also connects to the `app-network`.
 
-## Networks
+### 5. **Networks**
 
 The services communicate with each other over the `app-network`, which is a custom bridge network. The bridge network allows containers to discover and communicate with each other by their service names (e.g., `backend`, `mysql`).
 
-## Volumes
+### 6. **Volumes**
 
-### `mysql-data` Volume:
+#### `mysql-data` Volume:
 This volume ensures that the MySQL database's data is persisted between container restarts. The volume stores the MySQL data in the `/var/lib/mysql` directory within the container.
 
-- **Frontend (React app)**: Open `http://localhost:3000` in your browser.
-- **Backend (Spring Boot)**: Open `http://localhost:8090` to access the backend API.
+- **Frontend (React app)**: `http://localhost:3000`
+- **Backend (Spring Boot)**: `http://localhost:8090`
 
 ### Stopping the Containers
 
