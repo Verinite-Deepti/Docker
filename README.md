@@ -51,5 +51,17 @@ CMD ["npm", "start"]
 
 ---
 
+ **Run the Build Command**:
+
+   ```bash
+   docker build -t frontend:latest .
+   ```
+
+**Check the Built Image**:
+
+   ```bash
+   docker images
+   ```
+
 
 
