@@ -38,3 +38,15 @@ ENTRYPOINT ["java", "-jar", "/app/app.jar"]
     - `/app/app.jar`: This is the path to the `.jar` file inside the container.
 
 ---
+
+**Run the Build Command**:
+
+   ```bash
+   docker build -t backend:latest .
+   ```
+
+**Check the Built Image**:
+
+   ```bash
+   docker images
+   ```
