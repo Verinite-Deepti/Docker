@@ -56,6 +56,16 @@ This volume ensures that the MySQL database's data is persisted between containe
 - **Frontend (React app)**: `http://localhost:3000`
 - **Backend (Spring Boot)**: `http://localhost:8090`
 
+### Build and Start the Containers
+
+```bash
+docker-compose up --build
+```
 ### Stopping the Containers
 
-To stop the running containers,`Ctrl + C`
+To stop the running containers,`Ctrl + C` or run 
+
+```bash
+docker-compose down
+```
+
