@@ -1,6 +1,12 @@
-# Docker
+### Springboot 
 
-### Springboot Dockerfile 
+1. **FROM**: Specifies the base image to use for the container.
+2. **WORKDIR**: Sets the working directory inside the container, so subsequent commands will run relative to that directory.
+3. **COPY**: Copies files from your local machine into the container.
+4. **RUN**: Executes commands inside the container (e.g., install dependencies, build code).
+5. **EXPOSE**: Indicates which port the container will use for communication.
+6. **CMD / ENTRYPOINT**: Specifies the default command to run when the container starts. `CMD` is generally for setting default arguments, and `ENTRYPOINT` defines the executable itself.
+
 
 ```Dockerfile
 FROM openjdk:17-jdk-slim
