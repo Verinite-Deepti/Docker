@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # React Frontend
+  react-app:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  # Spring Boot Backend
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8090:8090"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/cla_config
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Verinite@123
+    networks:
+      - app-network
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: Verinite@123
+      MYSQL_DATABASE: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    networks:
+      - app-network
+
+# Flyway Database Migrations
+  # flyway:
+  #   image: flyway/flyway:latest
+  #   command: -url=jdbc:mysql://mysql:3306/cla_config -schemas=public -user=root -password=Verinite@123 migrate
+  #   depends_on:
+  #     - mysql
+  #   networks:
+  #     - app-network
+      
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
