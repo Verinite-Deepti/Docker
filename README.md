@@ -1,18 +1,14 @@
 # Docker Compose 
 
 ### 1. **React Frontend** (`react-app`)
-The frontend is a React application that communicates with the backend service.
 
-#### Configuration:
 - **Build Context**: The frontend application is built from the `./frontend` directory.
 - **Port Mapping**: Exposes the container's port `3000` to the host machine, allowing access to the React app at `http://localhost:3000`.
 - **Dependencies**: The React frontend depends on the `backend` service. It ensures that the backend starts before the frontend service.
 - **Network**: The frontend is connected to the `app-network` bridge network for inter-service communication.
 
 ### 2. **Spring Boot Backend** (`backend`)
-The backend is a Spring Boot application that connects to a MySQL database to serve APIs to the frontend.
 
-#### Configuration:
 - **Build Context**: The backend is built from the `./backend` directory.
 - **Port Mapping**: Exposes the container's port `8090` to the host machine, making the backend available at `http://localhost:8090`.
 - **MySQL Dependency**: The backend waits for the `mysql` service to become healthy before starting. The `depends_on` condition ensures that the backend starts only after MySQL is ready.
@@ -23,9 +19,7 @@ The backend is a Spring Boot application that connects to a MySQL database to se
 - **Network**: The backend service is part of the `app-network` bridge network.
 
 ### 3. **MySQL Database** (`mysql`)
-This service runs a MySQL database with persistent storage for the backend application.
 
-#### Configuration:
 - **Image**: Uses the `mysql:8.0` Docker image.
 - **Environment Variables**:
   - **MYSQL_ROOT_PASSWORD**: The password for the MySQL root user (`Verinite@123`).
@@ -36,9 +30,7 @@ This service runs a MySQL database with persistent storage for the backend appli
 - **Network**: The MySQL service is also connected to the `app-network` bridge network.
 
 ### 4. **Flyway Database Migrations**
-Flyway is a database migration tool that can be used to apply migrations automatically.
 
-#### Configuration:
 - **Image**: The `flyway/flyway:latest` image is used for migrations.
 - **Command**: The migration command connects to the `mysql` service and applies migrations.
 - **Dependencies**: The Flyway service depends on the `mysql` service to ensure MySQL is available before attempting migrations.
