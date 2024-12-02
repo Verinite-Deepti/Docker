@@ -45,7 +45,7 @@ The services communicate with each other over the `app-network`, which is a cust
 #### `mysql-data` Volume:
 This volume ensures that the MySQL database's data is persisted between container restarts. The volume stores the MySQL data in the `/var/lib/mysql` directory within the container.
 
-- **Frontend (React app)**: `http://localhost:3000`
+- **Frontend (React)**: `http://localhost:3000`
 - **Backend (Spring Boot)**: `http://localhost:8090`
 
 ### Build and Start the Containers
